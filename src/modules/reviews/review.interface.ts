@@ -1,5 +1,8 @@
+import { ObjectId } from "mongoose";
+
 export type TReview = {
-    email: string;
-    rating: number;
-    comment: string;
-  };
+  movie: ObjectId;
+  email: string;
+  rating: number;
+  comment: string;
+};

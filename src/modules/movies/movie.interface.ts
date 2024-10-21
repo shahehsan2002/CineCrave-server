@@ -1,3 +1,4 @@
+
 import { Model } from "mongoose";
 
 
@@ -9,6 +10,7 @@ export type TMovie = {
   genre: string;
   slug: string;
   viewCount: number;
+  totalRating: number;
   isDeleted?: boolean;
 };
 

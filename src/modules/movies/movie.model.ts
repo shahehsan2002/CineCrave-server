@@ -1,22 +1,9 @@
 import { format } from "date-fns";
 import { Schema, model } from "mongoose";
 import slugify from "slugify";
-import { TMovie, TMovieMethods, TMovieModel, TReview } from "./movie.interface";
+import { TMovie, TMovieMethods, TMovieModel,  } from "./movie.interface";
 
-const reviewSchema = new Schema<TReview>({
-  email: {
-    type: String,
-    required: true,
-  },
-  rating: {
-    type: Number,
-    required: true,
-  },
-  comment: {
-    type: String,
-    required: true,
-  },
-});
+
 
 const movieSchema = new Schema<TMovie, TMovieModel, TMovieMethods>({
   title: {
@@ -34,9 +21,6 @@ const movieSchema = new Schema<TMovie, TMovieModel, TMovieMethods>({
     type: String,
     required: [true, "Genre is required"],
   },
-  reviews: {
-    type: [reviewSchema],
-  },
   slug: {
     type: String,
   },
@@ -48,6 +32,11 @@ const movieSchema = new Schema<TMovie, TMovieModel, TMovieMethods>({
     type: Number,
     default: 0,
   },
+  totalRating: {
+    type: Number,
+    default: 0,
+  },
+  // reviews: [reviewSchema],
 });
 
 /* Way-2: Using pre hook middleware
