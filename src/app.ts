@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { MovieRoutes } from "./modules/movies/movie.route";
 import notFound from "./middleware/NotFound";
+import globalErrorHandler from "./middleware/GlobalErrorHandler";
 
 const app = express();
 
@@ -17,6 +18,6 @@ app.get("/", (req: Request, res: Response) => {
 app.use(notFound)
 
 // Error handler
-app.use()
+app.use(globalErrorHandler)
 
 export default app;
