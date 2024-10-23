@@ -1,18 +1,20 @@
-import { Request, Response } from "express";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
+import { NextFunction, Request, Response } from "express";
+import { catchAsync } from "../../utils/catchAsync";
 import { ReviewServices } from "./review.service";
-// import { ReviewServices } from "./review.service";
 
-const addReview = async (req: Request, res: Response) => {
+const addReview = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const { slug } = req.params;
   const reviewData = req.body;
   const result = await ReviewServices.addReview(slug, reviewData);
 
   res.json({
     success: true,
-    message: "Review is created successfully !",
+    message: 'Review is created successfully!',
     data: result,
   });
-};
+});
 
 // const getAllReviews = async (req: Request, res: Response) => {
 //   try {
@@ -26,7 +28,7 @@ const addReview = async (req: Request, res: Response) => {
 //   } catch (err: any) {
 //     res.status(500).json({
 //       success: false,
-//       message: "Could not fetch movies!",
+//       message: "Could not fetch reviews!",
 //       error: err,
 //     });
 //   }
@@ -45,7 +47,7 @@ const addReview = async (req: Request, res: Response) => {
 //   } catch (err: any) {
 //     res.status(500).json({
 //       success: false,
-//       message: "Could not fetch movies!",
+//       message: "Could not fetch reviews!",
 //       error: err,
 //     });
 //   }
@@ -64,7 +66,7 @@ const addReview = async (req: Request, res: Response) => {
 //   } catch (err: any) {
 //     res.status(500).json({
 //       success: false,
-//       message: "Could not fetch movies!",
+//       message: "Could not fetch reviews!",
 //       error: err,
 //     });
 //   }
@@ -83,7 +85,7 @@ const addReview = async (req: Request, res: Response) => {
 //   } catch (err: any) {
 //     res.status(500).json({
 //       success: false,
-//       message: "Could not fetch movies!",
+//       message: "Could not fetch reviews!",
 //       error: err,
 //     });
 //   }
@@ -91,8 +93,8 @@ const addReview = async (req: Request, res: Response) => {
 
 export const ReviewControllers = {
   addReview,
-//   getAllReviews,
-//   getReviewById,
-//   updateReview,
-//   deleteReview,
+  //   getAllReviews,
+  //   getReviewById,
+  //   updateReview,
+  //   deleteReview,
 };

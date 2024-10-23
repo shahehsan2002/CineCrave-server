@@ -1,7 +1,5 @@
-
+/* eslint-disable no-unused-vars */
 import { Model } from "mongoose";
-
-
 
 export type TMovie = {
   title: string;

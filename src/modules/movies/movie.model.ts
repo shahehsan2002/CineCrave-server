@@ -1,9 +1,7 @@
 import { format } from "date-fns";
 import { Schema, model } from "mongoose";
 import slugify from "slugify";
-import { TMovie, TMovieMethods, TMovieModel,  } from "./movie.interface";
-
-
+import { TMovie, TMovieMethods, TMovieModel } from "./movie.interface";
 
 const movieSchema = new Schema<TMovie, TMovieModel, TMovieMethods>({
   title: {
@@ -36,7 +34,6 @@ const movieSchema = new Schema<TMovie, TMovieModel, TMovieMethods>({
     type: Number,
     default: 0,
   },
-  // reviews: [reviewSchema],
 });
 
 /* Way-2: Using pre hook middleware
